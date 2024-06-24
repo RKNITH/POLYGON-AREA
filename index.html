@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Area Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Polygon Area Calculator</h1>
+            <p>Learn how to find the area of a polygon given the coordinates of its vertices and use our calculator to
+                get the area.</p>
+        </header>
+
+        <section class="theory">
+            <h2>Theory</h2>
+            <p>The area of a polygon can be found using the Shoelace formula (or Gauss's area formula) when the
+                coordinates of its vertices are known. The formula is:</p>
+            <pre>
+                Area = 0.5 * | Σ(x[i] * y[i+1] - y[i] * x[i+1]) |
+                where (x[n+1], y[n+1]) = (x[0], y[0])
+            </pre>
+        </section>
+
+        <section class="calculator">
+            <h2>Calculate Area</h2>
+            <form id="polygonForm">
+                <label for="vertices">Number of vertices:</label>
+                <select id="vertices" name="vertices" onchange="generateInputFields()">
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+
+                <div id="coordinateInputs"></div>
+                <button type="button" onclick="calculateArea()">Calculate Area</button>
+            </form>
+        </section>
+
+        <section class="result">
+            <h2>Result</h2>
+            <p id="areaResult"></p>
+        </section>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
